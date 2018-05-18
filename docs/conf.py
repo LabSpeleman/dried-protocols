@@ -26,8 +26,16 @@ author = 'Christophe Van Neste, Katleen De Preter, Frank Speleman'
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = subprocess.run(['git','describe'],check=True,stdout=subprocess.PIPE).stdout.decode()
-# this will fail the doc build if run on a commit that has no tag info
+try:
+    release = subprocess.run(['git','describe'],check=True,stdout=subprocess.PIPE).stdout.decode()
+    # this will fail the doc build if run on a commit that has no tag info
+except subprocess.CalledProcessError:
+    # when no official tag report short commit hash
+    release = 'commit {}'.format(
+        subprocess.run(
+            ['git','rev-parse','--short','HEAD'],check=True,stdout=subprocess.PIPE
+        ).stdout.decode()
+    )
 
 
 # -- General configuration ---------------------------------------------------
@@ -158,3 +166,12 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+
+rst_epilog = """
+version |version| - {}
+
+.. |version| replace:: {}
+""".format(
+    author,
+    release
+)
