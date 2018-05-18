@@ -63,6 +63,6 @@ Protocol
    VO's data directory during the project's lifespan up to
    publication. After publication data on ArrayExpress should become
    public and the private copy redundant.
-5. Register your dataset at *google forms or dropbox file*
+5. Register your dataset at `Lab Speleman omics dataset registration form <https://goo.gl/forms/6gnoGBLhdzPzdajP2>`_
    
 
