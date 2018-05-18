@@ -58,7 +58,7 @@ Protocol
 1. Upon receiving data files, check integrity of all files.
 2. Collect metadata for all samples related to data files.
 3. Do a quality run on the data.
-4. If quality satisfying, upload all raw data to ArrayExpress. An
+4. If quality satisfying, upload all raw data to `ArrayExpress<https://www.ebi.ac.uk/fg/annotare/login/>`_. An
    additional copy of the data can be kept within the HPC Speleman
    VO's data directory during the project's lifespan up to
    publication. After publication data on ArrayExpress should become
